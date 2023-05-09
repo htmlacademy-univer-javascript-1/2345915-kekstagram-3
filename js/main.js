@@ -4,7 +4,7 @@ const randNumRang = (a, b) => {
   randNum = randNum + ((a+b)/2)*16;
 
   if (a === b) return a;
-  if (a > b) return 0;
+  if (a > b) return "Неверные границы";
 
   return randNum;
 }
