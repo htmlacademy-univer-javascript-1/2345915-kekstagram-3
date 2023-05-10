@@ -24,7 +24,7 @@ function objectGenerator() {
       {
         id: i,
         uri: 'photos/{{i}}.jpg',
-        decrioption: 'liked photos number ${i}',
+        decrioption: 'good photos number ${i}',
         likes: getRandInt(15, 200),
         comments: getRandInt(0, 200)
       }
