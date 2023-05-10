@@ -1,36 +1,6 @@
-function getRandInt(a, b) {
-  let minIntValue = Math.trunc(min);
-  let maxIntValue = Math.trunc(max);
+import { lengthCheck, generateNewPost } from "./util";
+import {str} from './data.js';
 
-  if(minIntValue === maxIntValue || minIntValue < 0 || maxIntValue < 0) { return -1 ;}
+lengthCheck(str, 4);
 
-  if(maxIntValue > minIntValue) {
-    return Math.floor(Math.random() * (maxIntValue - minIntValue + 1)) + minIntValue;
-  }
-
-  if(maxIntValue < minIntValue) {
-    const swap = minIntValue;
-    minIntValue = maxIntValue;
-    maxIntValue = swap;
-    return Math.floor(Math.random() * (maxIntValue - minIntValue + 1)) + minIntValue;
-  }
-}
-
-function objectGenerator() {
-  const photos = [];
-
-  for(let i = 1; i < 26; i++) {
-    photos.push(
-      {
-        id: i,
-        uri: 'photos/{{i}}.jpg',
-        decrioption: 'nice photos number ${i}',
-        likes: getRandInt(15, 200),
-        comments: getRandInt(0, 200)
-      }
-    )
-  }
-  return photos;
-}
-
-const photosGenerator = objectGenerator();
+generateNewPost();
