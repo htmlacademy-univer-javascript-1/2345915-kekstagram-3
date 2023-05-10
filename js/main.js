@@ -1,6 +1,6 @@
 function getRandInt(a, b) {
-  let minIntValue = Math.trunc(min);
-  let maxIntValue = Math.trunc(max);
+  let minIntValue = Math.trunc(a);
+  let maxIntValue = Math.trunc(b);
 
   if(minIntValue === maxIntValue || minIntValue < 0 || maxIntValue < 0) { return -1 ;}
 
