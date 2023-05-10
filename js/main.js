@@ -1,10 +1,36 @@
-const randNumRang = (a, b) => {
+function getRandInt(a, b) {
+  let minIntValue = Math.trunc(min);
+  let maxIntValue = Math.trunc(max);
 
-  let randNum = Math.random();
-  randNum = randNum + ((a+b)/2)*16;
+  if(minIntValue === maxIntValue || minIntValue < 0 || maxIntValue < 0) { return -1 ;}
 
-  if (a === b) return a;
-  if (a > b) return 0;
+  if(maxIntValue > minIntValue) {
+    return Math.floor(Math.random() * (maxIntValue - minIntValue + 1)) + minIntValue;
+  }
 
-  return randNum;
+  if(maxIntValue < minIntValue) {
+    const swap = minIntValue;
+    minIntValue = maxIntValue;
+    maxIntValue = swap;
+    return Math.floor(Math.random() * (maxIntValue - minIntValue + 1)) + minIntValue;
+  }
 }
+
+function objectGenerator() {
+  const photos = [];
+
+  for(let i = 1; i < 26; i++) {
+    photos.push(
+      {
+        id: i,
+        uri: 'photos/{{i}}.jpg',
+        decrioption: 'nice photos number ${i}',
+        likes: getRandInt(15, 200),
+        comments: getRandInt(0, 200)
+      }
+    )
+  }
+  return photos;
+}
+
+const photosGenerator = objectGenerator();
