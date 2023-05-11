@@ -20,21 +20,20 @@ function getRandInt(a, b) {
   }
 }
 
-function generateNewPost() {
+function generateNewPosts () {
   const photos = [];
-
   for(let i = 1; i < 26; i++) {
     photos.push(
       {
         id: i,
-        uri: 'photos/{{i}}.jpg',
-        decrioption: 'nice photos number ${i}',
+        url: `photos/${i}.jpg`,
+        description: `nice photo number ${i}`,
         likes: getRandInt(15, 200),
         comments: getRandInt(0, 200)
       }
-    )
+    );
   }
   return photos;
 }
 
-export {generateNewPost, getRandInt, lengthCheck};
+export {generateNewPosts, getRandInt, lengthCheck};

@@ -1,6 +1,6 @@
-import { lengthCheck, generateNewPost } from "./util";
+import { lengthCheck, generateNewPosts } from './util.js';
 import {str} from './data.js';
 
 lengthCheck(str, 4);
 
-generateNewPost();
+generateNewPosts();
