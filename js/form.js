@@ -12,7 +12,7 @@ const pristine = new Pristine(form, {
 const TextField = {
   minLength: 20,
   maxLength: 140,
-}
+};
 
 function validateComment(comment) {
   if (comment.length >= TextField.minLength && comment.length <= TextField.maxLength) {
