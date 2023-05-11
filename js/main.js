@@ -1,6 +1,5 @@
-import { lengthCheck, generateNewPost } from "./util";
-import {str} from './data.js';
+import { getRandInt, lengthCheck } from './util.js';
+import './data.js';
 
-lengthCheck(str, 4);
-
-generateNewPost();
+getRandInt(0, 200);
+lengthCheck('', 12);

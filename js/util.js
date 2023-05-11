@@ -1,5 +1,5 @@
 function lengthCheck (strChecked, maxLength) {
-  return strChecked.lenght < maxLength;
+  return strChecked.lenght <= maxLength;
 }
 
 function getRandInt(a, b) {
@@ -20,21 +20,6 @@ function getRandInt(a, b) {
   }
 }
 
-function generateNewPost() {
-  const photos = [];
+export {getRandInt, lengthCheck};
 
-  for(let i = 1; i < 26; i++) {
-    photos.push(
-      {
-        id: i,
-        uri: 'photos/{{i}}.jpg',
-        decrioption: 'nice photos number ${i}',
-        likes: getRandInt(15, 200),
-        comments: getRandInt(0, 200)
-      }
-    )
-  }
-  return photos;
-}
 
-export {generateNewPost, getRandInt, lengthCheck};
