@@ -1,3 +1,4 @@
+
 const form = document.querySelector('.img-upload__form');
 
 const pristine = new Pristine(form, {
@@ -28,3 +29,9 @@ pristine.addValidator(
   validateComment,
   `Комментарий дложен быть от ${TextField.minLength} до ${TextField.maxLength} символов.`
 );
+
+form.addEventListener('submit', (evt)=> {
+  if (!pristine.validate()) {
+    evt.preventDefault();
+  }
+});
