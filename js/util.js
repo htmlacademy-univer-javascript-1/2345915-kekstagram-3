@@ -22,4 +22,3 @@ function getRandInt(a, b) {
 
 export {getRandInt, lengthCheck};
 
-
