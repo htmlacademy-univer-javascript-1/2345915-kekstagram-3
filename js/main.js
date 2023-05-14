@@ -7,3 +7,5 @@ import './photoEdit.js';
 
 getRandInt(0, 200);
 lengthCheck('', 12);
+
+document.getElementById('upload-select-image').action = '';

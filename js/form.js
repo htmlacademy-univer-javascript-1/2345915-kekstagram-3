@@ -1,6 +1,9 @@
+import { sendData } from './fetchData.js';
+import { closeImageUpload } from './bigPicture.js';
 
 const form = document.querySelector('.img-upload__form');
 
+// eslint-disable-next-line no-undef
 const pristine = new Pristine(form, {
   classTo: 'img-upload__text',
   successClass: 'form--valid',
@@ -10,13 +13,11 @@ const pristine = new Pristine(form, {
   errorTextClass: 'form__error'
 });
 
-const TextField = {
-  minLength: 20,
-  maxLength: 140,
-};
+const minLen = 20;
+const maxLen = 140;
 
 function validateComment(comment) {
-  if (comment.length >= TextField.minLength && comment.length <= TextField.maxLength) {
+  if (comment.length >= minLen && comment.length <= maxLen) {
     document.querySelector('.img-upload__submit').disabled = false;
     return true;
   }
@@ -27,11 +28,16 @@ function validateComment(comment) {
 pristine.addValidator(
   form.querySelector('.text__description'),
   validateComment,
-  `Комментарий дложен быть от ${TextField.minLength} до ${TextField.maxLength} символов.`
+  `Комментарий дложен быть от ${minLen} до ${maxLen} символов.`
 );
 
-form.addEventListener('submit', (evt)=> {
-  if (!pristine.validate()) {
-    evt.preventDefault();
+form.addEventListener('submit', async (evt) => {
+  evt.preventDefault();
+  if(pristine.validate()) {
+    const data = new FormData(document.getElementById('upload-select-image'));
+    evt.target.querySelector('.img-upload__submit').disabled = true;
+    console.log(form);
+    await sendData(data);
+    closeImageUpload();
   }
 });
